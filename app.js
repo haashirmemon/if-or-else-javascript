@@ -79,6 +79,14 @@
 //     console.log("2 sai chota hai")
     
 //  }
+var sub1=+prompt("chemistry")
+var sub2=+prompt("bio")
+var sub3=+prompt("physics")
+var sub4=+prompt("mathemthics")
+var totalMarks= (1000);
+console.log(totalMarks)
+var obtained =+(sub1+sub2+sub3+sub4)
+console.log(obtained/totalMarks* 250)
 
 
 
