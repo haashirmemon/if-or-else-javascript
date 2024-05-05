@@ -65,8 +65,8 @@
 //     console.log(percentage);
 // }
 
-// var num1= 
-// if (num1>8) {
+// var num1= 10
+// if(num1>8) {
 //     console.log("8 sai barahai")
     
 //  }if (num1>6) {
@@ -79,15 +79,40 @@
 //     console.log("2 sai chota hai")
     
 //  }
-var sub1=+prompt("chemistry")
-var sub2=+prompt("bio")
-var sub3=+prompt("physics")
-var sub4=+prompt("mathemthics")
-var totalMarks= (1000);
-console.log(totalMarks)
-var obtained =+(sub1+sub2+sub3+sub4)
-console.log(obtained/totalMarks* 250)
+// var sub1=+prompt("chemistry")
+// var sub2=+prompt("bio")
+// var sub3=+prompt("physics")
+// var sub4=+prompt("mathemthics")
+// var totalMarks= (1000);
+// console.log(totalMarks)
+// var obtained =+(sub1+sub2+sub3+sub4)
+// console.log(obtained/totalMarks* 250)
+function calculateAge() {
+   var dob = document.getElementById('dob').value;
+   var dobDate = new Date(dob);
+   var now = new Date();
+   var age = now.getFullYear() - dobDate.getFullYear();
+   var monthDiff = now.getMonth() - dobDate.getMonth();
 
+   if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < dobDate.getDate())) {
+       age--;
+   }
+
+   document.getElementById('ageResult').innerText = "Your age is: " + age;
+
+   // Get current time
+   var hours = now.getHours();
+   var minutes = now.getMinutes();
+   var seconds = now.getSeconds();
+
+   // Format time
+   var timeString = ("0" + hours).slice(-2) + ":" + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+
+   document.getElementById('timeResult').innerText = "Current time is: " + timeString;
+}
+
+// Display current time when page loads
+calculateAge();
 
 
 
