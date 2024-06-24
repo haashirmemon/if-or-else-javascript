@@ -87,32 +87,74 @@
 // console.log(totalMarks)
 // var obtained =+(sub1+sub2+sub3+sub4)
 // console.log(obtained/totalMarks* 250)
-function calculateAge() {
-   var dob = document.getElementById('dob').value;
-   var dobDate = new Date(dob);
-   var now = new Date();
-   var age = now.getFullYear() - dobDate.getFullYear();
-   var monthDiff = now.getMonth() - dobDate.getMonth();
+// function calculateAge() {
+//    var dob = document.getElementById('dob').value;
+//    var dobDate = new Date(dob);
+//    var now = new Date();
+//    var age = now.getFullYear() - dobDate.getFullYear();
+//    var monthDiff = now.getMonth() - dobDate.getMonth();
 
-   if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < dobDate.getDate())) {
-       age--;
-   }
+//    if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < dobDate.getDate())) {
+//        age--;
+//    }
 
-   document.getElementById('ageResult').innerText = "Your age is: " + age;
+//    document.getElementById('ageResult').innerText = "Your age is: " + age;
 
-   // Get current time
-   var hours = now.getHours();
-   var minutes = now.getMinutes();
-   var seconds = now.getSeconds();
+//    // Get current time
+//    var hours = now.getHours();
+//    var minutes = now.getMinutes();
+//    var seconds = now.getSeconds();
 
-   // Format time
-   var timeString = ("0" + hours).slice(-2) + ":" + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+//    // Format time
+//    var timeString = ("0" + hours).slice(-2) + ":" + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
 
-   document.getElementById('timeResult').innerText = "Current time is: " + timeString;
+//    document.getElementById('timeResult').innerText = "Current time is: " + timeString;
+// }
+
+// // Display current time when page loads
+// calculateAge();
+
+// set timeout
+// fetch
+// Promise
+var a = "A"
+var b = "B"
+setTimeout(() => {
+    console.log(a);
+}, 500);
+console.log(b);
+
+fetch("https://api.escuelajs.co/api/v1/products")
+.then((res)  => res.json)
+.then((data)  => console.log(data))
+console.log(b);
+function login(callback) {
+    setTimeout(() => {
+        console.log('user login');
+        callback()
+    },1000);
 }
+function getuserdata() {
+    let userinfo ={
+        fullname :"haashir"
+    }
+    setTimeout(() => {
+        console.log(userinfo);
+    }, 1000);
+}
+login(getuserdata)
 
-// Display current time when page loads
-calculateAge();
-
-
+let productarr = []
+function getproductfromApi(callback) {
+    fetch("https://api.escuelajs.co/api/v1/products")
+    .then((res) => res.json())
+    .then((products) => {
+        console.log(products);
+        callback(products)
+    })
+}
+function displayproducts(products) {
+    console.log("see all products",products);
+}
+getproductfromApi(displayproducts)
 
