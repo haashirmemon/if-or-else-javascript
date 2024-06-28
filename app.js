@@ -117,44 +117,123 @@
 // set timeout
 // fetch
 // Promise
-var a = "A"
-var b = "B"
-setTimeout(() => {
-    console.log(a);
-}, 500);
-console.log(b);
+// var a = "A"
+// var b = "B"
+// setTimeout(() => {
+//     console.log(a);
+// }, 500);
+// console.log(b);
 
-fetch("https://api.escuelajs.co/api/v1/products")
-.then((res)  => res.json)
-.then((data)  => console.log(data))
-console.log(b);
-function login(callback) {
-    setTimeout(() => {
-        console.log('user login');
-        callback()
-    },1000);
-}
-function getuserdata() {
-    let userinfo ={
-        fullname :"haashir"
-    }
-    setTimeout(() => {
-        console.log(userinfo);
-    }, 1000);
-}
-login(getuserdata)
+// fetch("https://api.escuelajs.co/api/v1/products")
+// .then((res)  => res.json)
+// .then((data)  => console.log(data))
+// console.log(b);
+// function login(callback) {
+//     setTimeout(() => {
+//         console.log('user login');
+//         callback()
+//     },1000);
+// }
+// function getuserdata() {
+//     let userinfo ={
+//         fullname :"haashir"
+//     }
+//     setTimeout(() => {
+//         console.log(userinfo);
+//     }, 1000);
+// }
+// login(getuserdata)
 
-let productarr = []
-function getproductfromApi(callback) {
-    fetch("https://api.escuelajs.co/api/v1/products")
-    .then((res) => res.json())
-    .then((products) => {
-        console.log(products);
-        callback(products)
-    })
+// let productarr = []
+// function getproductfromApi(callback) {
+//     fetch("https://api.escuelajs.co/api/v1/products")
+//     .then((res) => res.json())
+//     .then((products) => {
+//         console.log(products);
+//         callback(products)
+//     })
+// }
+// function displayproducts(products) {
+//     console.log("see all products",products);
+// }
+// getproductfromApi(displayproducts)
+// let token = ''
+// function login(callback) {
+//     setTimeout(() => {
+//        console.log("user is logged in"); 
+//        token= "qasim"
+//     }, 1000);
+//     callback()
+// }
+// function getuserdata() {
+//     setTimeout(() => {
+//         console.log(token);
+//         if (token) {
+//             const user = {fullname 
+//                 :"haashir"}
+//             return user
+//         }
+//     }, 1000);
+// }
+// login(getuserdata)
+// getuserdata()
+// let isvalid = false
+// const p =  new Promise((resolve, reject) => {
+//     if (isvalid) {
+//         resolve ("kaam hogaya") 
+//     } else {
+//     reject("kaam hogaya hai nalaiq ") 
+//     }
+// })
+
+// p.then((data) => console.log(data))
+// p.catch((err) => console.log(err))
+// // login(getuserdata)
+// let valid = false
+// function login() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if (valid) {
+//                 resolve ("baji ki shaadi hai meri ")
+//             } else {
+//                  reject(" baarish ki waja sai cancel hogai hai ")
+//             }
+//         }, 1000);
+//     })
+// }
+// login()
+// .then((token) =>{
+//     console.log("user ki baji ki shaadi hai ");
+//     getuserdata(token)
+// })
+// .catch((err) => console.error(err))
+// getuserdata()
+let products = []
+
+fetch("https://fakestoreapi.com/products")
+  .then((res) => res.json())
+  .then((data) => {
+    products = data;
+    displayProducts();
+  }).catch((err)=> console.log(err));
+
+function displayProducts() {
+var list = document.getElementById("list")
+products.forEach((data) =>{
+    let li = `<li>${data.title} ($${data.price})</li>`;
+    list.innerHTML +=li
+})  
 }
-function displayproducts(products) {
-    console.log("see all products",products);
-}
-getproductfromApi(displayproducts)
+// Products.forEach((data) => {
+//     let li = `<li>${data.title} ($${data.price})</li>`;
+//     list.innerHTML += li;
+//   })}
+// function  displayProducts() {
+//     let list = document.getElementById("list");
+//     product.forEach((data) => {
+//         let li = `<li>${data.title} ($${data.price})</li>`;
+//         list.innerHTML += li;
+//       });
+//   }
+
 
